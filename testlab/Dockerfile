@@ -18,7 +18,7 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /app
 
 # Copiar proyecto
-COPY testlab/BACKEND /app
+COPY testlab/backend /app
 
 # Instalar dependencias PHP
 RUN composer install --no-dev --optimize-autoloader
