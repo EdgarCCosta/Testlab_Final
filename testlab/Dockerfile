@@ -24,7 +24,7 @@ COPY testlab/backend /app
 RUN composer install --no-dev --optimize-autoloader
 
 # Limpiar caches de Laravel
-RUN php artisan config:clear && php artisan route:clear && php artisan view:clear
+RUN php artisan config:clear && php artisan route:clear 
 
 # Variables de entorno (se leen automáticamente desde Railway)
 ENV DB_CONNECTION=mysql \
