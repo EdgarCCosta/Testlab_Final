@@ -43,15 +43,23 @@ class DatabaseSeeder extends Seeder
         );
 
         // 2️⃣ Crear o actualizar proyectos
-        $project1 = Project::updateOrCreate(
-            ['name' => 'E-commerce Platform'],
-            ['description' => 'Desarrollo de plataforma de ventas online', 'status' => 'active']
-        );
+       $project1 = Project::updateOrCreate(
+    ['name' => 'E-commerce Platform'],
+    [
+        'description' => 'Desarrollo de plataforma de ventas online',
+        'status' => 'active',
+        'created_by' => $admin->id
+    ]
+);
 
-        $project2 = Project::updateOrCreate(
-            ['name' => 'Mobile App'],
-            ['description' => 'Aplicación iOS y Android', 'status' => 'active']
-        );
+$project2 = Project::updateOrCreate(
+    ['name' => 'Mobile App'],
+    [
+        'description' => 'Aplicación iOS y Android',
+        'status' => 'active',
+        'created_by' => $admin->id
+    ]
+);
 
         // Asociar usuarios a proyectos (evita duplicados)
         $project1->users()->syncWithoutDetaching([$admin->id, $tester->id]);
